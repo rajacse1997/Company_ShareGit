@@ -1,0 +1,60 @@
+
+
+<p id="head">Stock Predication Application</p>
+
+
+<form class="search">
+  <input  #companyname type="text" placeholder="Search Company here..." required/>
+  <button  (click)="this.getcmp(companyname.value); companyname.value=''">Search</button>
+</form>
+
+
+<div>
+  <h3 id="intro"> Below are Share Percentage Prediction Of Next 5 Year :</h3>
+
+</div>
+
+<div id="content">
+  <h2 id="introcmp">{{notes.name | uppercase}}</h2>
+      <table>
+          <tr>
+              <td id="r1" *ngFor="let p of notes.year">{{p}}</td>
+            </tr>
+      <tr>
+        <td id="r2" *ngFor="let p of notes.price">{{p}}</td>
+      </tr>
+      </table>
+</div>
+
+
+<br>
+<br>
+
+<h3 id="pstitle">Past Searches</h3>
+
+
+<table>
+  <tr *ngFor="let history of this.addedcmp">
+    <td id="pastsearch">{{history.name | uppercase}}</td>
+    <td id="pastsearch" *ngFor="let p of history.price">{{p}}</td>
+    
+    <td id="pastsearch"><button  id="rishav" (click)="this.getcmpp(history.name); ">click</button></td>
+    
+        
+      
+  </tr>
+  
+</table>
+
+
+
+
+
+  
+  
+  <div><router-outlet></router-outlet></div>
+
+
+   
+
+
